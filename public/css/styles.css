@@ -323,3 +323,16 @@ table.blueTable tfoot .links a{
 }
 
 
+.limpiar{
+	margin-top: 1%;
+	display: flex;
+	justify-content: center;
+}
+
+.limpiar__boton{
+	width: 20%;
+	height: 30px;
+	border:none;
+	color: #FFFFFF;
+	background-color: #28B463;
+}

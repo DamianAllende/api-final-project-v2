@@ -35839,6 +35839,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var API_URL = 'http://localhost:3000';
+var nweLists = '';
 //let listaParaVisualizar = []
 var usuario = 'damian';
 var dt = new Date();
@@ -35872,7 +35873,7 @@ var Ventas = function (_Component) {
       return _this.state.productos.map(function (items) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'option',
-          { value: items.nombre, key: items.id },
+          { value: items.nombre, 'data-nombre': items.nombre, key: items.id },
           items.nombre
         );
       });
@@ -35888,9 +35889,9 @@ var Ventas = function (_Component) {
         tipo_pago: e.target.tipo_pago.value,
         usuario: usuario
         // fecha: e.target.fecha.value
-      };
-      console.log(registroVenta);
-      __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.post(API_URL + '/api/ventas').send(registroVenta).then(function () {
+
+        // console.log(registroVenta)
+      };__WEBPACK_IMPORTED_MODULE_1_superagent___default.a.post(API_URL + '/api/ventas').send(registroVenta).then(function () {
 
         __WEBPACK_IMPORTED_MODULE_1_superagent___default.a.get(API_URL + '/api/ventas').then(function (data) {
           _this.setState({
@@ -35906,7 +35907,16 @@ var Ventas = function (_Component) {
       // this.setState({
       //         listaRegistrada: registroVenta
       //       })
+      e.target.cantidad.value = '';
+    };
 
+    _this.eliminarNewList = function (e) {
+      e.preventDefault();
+      console.log('lista eliminado');
+
+      _this.setState({
+        ventas: []
+      });
     };
 
     _this.eliminarVenta = function (elementId) {
@@ -35981,7 +35991,7 @@ var Ventas = function (_Component) {
 
     // listaParaVisualizar.push(this.state.listaRegistrada)
     // console.log(listaParaVisualizar)
-    var nweLists = this.state.ventas.filter(function (word) {
+    nweLists = this.state.ventas.filter(function (word) {
       return word.cliente === formularioVenta.cliente.value;
     });
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -36090,7 +36100,7 @@ var Ventas = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'venta__boton', type: 'submit', value: 'Submit' })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'venta__boton', type: 'submit', value: 'Registrar' })
             )
           )
         )
@@ -36127,11 +36137,22 @@ var Ventas = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'tbody',
             null,
-            nweLists.map(function (items) {
+            nweLists.slice(0).reverse().map(function (items, i) {
               return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ListaProductos__["a" /* default */], { key: items.id, id: items.id, producto: items.producto, cantidad: items.cantidad, fn: _this3.eliminarVenta });
               // return <ListaProductos cliente={items} fn={this.borrarItem} posicion={idArray} />
             })
           )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'limpiar' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'button',
+          { className: 'limpiar__boton', onClick: function onClick(e) {
+              _this3.eliminarNewList(e);
+            } },
+          'Limpiar lista'
         )
       )
     );
@@ -37733,6 +37754,7 @@ var ReportePagos = function (_Component) {
   };
 
   ReportePagos.prototype.render = function render() {
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -37753,11 +37775,11 @@ var ReportePagos = function (_Component) {
           { width: 600, height: 300, data: this.state.pagos,
             margin: { top: 5, right: 30, left: 20, bottom: 5 } },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* CartesianGrid */], { strokeDasharray: '3 3' }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["f" /* XAxis */], { dataKey: 'cantidad' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["f" /* XAxis */], { dataKey: 'tipo_pago' }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["g" /* YAxis */], null),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["e" /* Tooltip */], null),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["d" /* Legend */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["a" /* Bar */], { stackId: '', dataKey: 'tipo_pago', fill: '#8884d8' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["a" /* Bar */], { stackId: '', dataKey: 'cantidad', fill: '#2ca02c ' })
         )
       )
     );
@@ -52813,11 +52835,11 @@ var ReportePagos = function (_Component) {
           { width: 600, height: 300, data: this.state.vendidos,
             margin: { top: 5, right: 30, left: 20, bottom: 5 } },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* CartesianGrid */], { strokeDasharray: '3 3' }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["f" /* XAxis */], { dataKey: 'Producto' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["f" /* XAxis */], { dataKey: 'producto' }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["g" /* YAxis */], null),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["e" /* Tooltip */], null),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["d" /* Legend */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["a" /* Bar */], { stackId: '', dataKey: 'Cantidad', fill: '#8884d8' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["a" /* Bar */], { stackId: '', dataKey: 'cantidad', fill: '#8884d8' })
         )
       )
     );

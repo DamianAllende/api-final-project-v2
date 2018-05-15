@@ -12,7 +12,9 @@ import {
   Redirect
 } from 'react-router-dom';
 
+
 const API_URL = 'http://localhost:3000'
+let nweLists = ''
 //let listaParaVisualizar = []
 let usuario = 'damian'
 let dt = new Date();
@@ -73,7 +75,7 @@ componentDidMount() {
 
   listaDeProdcutos = () => {
     return this.state.productos.map((items) =>{
-        return <option value={items.nombre} key={items.id} >{items.nombre}</option>
+        return <option value={items.nombre} data-nombre={items.nombre} key={items.id} >{items.nombre}</option>
         })
   }
 
@@ -87,10 +89,10 @@ componentDidMount() {
       producto: e.target.producto.value,
       cantidad: e.target.cantidad.value,
       tipo_pago: e.target.tipo_pago.value,
-      usuario: usuario,
+      usuario: usuario
       // fecha: e.target.fecha.value
     }
-    console.log(registroVenta)
+    // console.log(registroVenta)
     request
       .post(`${API_URL}/api/ventas`)
       .send(registroVenta)
@@ -114,9 +116,21 @@ componentDidMount() {
       // this.setState({
       //         listaRegistrada: registroVenta
       //       })
-      
+      e.target.cantidad.value = ''
 
   }
+
+
+  eliminarNewList = (e) => {
+    e.preventDefault()
+    console.log('lista eliminado')
+    
+    this.setState({
+      ventas: []
+    })
+
+  }
+
 
 
   eliminarVenta = (elementId) => {
@@ -138,7 +152,6 @@ componentDidMount() {
         console.log(e)
       })
   }
-
 
 
 
@@ -178,7 +191,7 @@ componentDidMount() {
 
     // listaParaVisualizar.push(this.state.listaRegistrada)
     // console.log(listaParaVisualizar)
-    let nweLists = this.state.ventas.filter(word => word.cliente === formularioVenta.cliente.value )
+    nweLists = this.state.ventas.filter(word => word.cliente === formularioVenta.cliente.value )
     return (
       <div>
 
@@ -226,7 +239,7 @@ componentDidMount() {
               
             <div className='ventas__separador'>  
               <div>
-                 <input className='venta__boton' type="submit" value="Submit" />
+                 <input className='venta__boton' type="submit" value="Registrar" />
               </div>
             </div>    
           </form>
@@ -243,7 +256,7 @@ componentDidMount() {
               </thead>
             <tbody> 
               
-              { nweLists.map((items) =>{
+              { nweLists.slice(0).reverse().map((items, i) =>{
               return<ListaProductos key={items.id} id={items.id} producto={items.producto} cantidad={items.cantidad} fn={ this.eliminarVenta }/>
               // return <ListaProductos cliente={items} fn={this.borrarItem} posicion={idArray} />
               })
@@ -251,7 +264,9 @@ componentDidMount() {
             </tbody> 
             </table>
           </div>
-          
+          <div className='limpiar'>
+            <button className='limpiar__boton'  onClick={ (e) => { this.eliminarNewList(e)} } >Limpiar lista</button>
+          </div>
     </div>    
     );
   }

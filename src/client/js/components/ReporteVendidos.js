@@ -51,16 +51,13 @@ componentDidMount() {
             <BarChart width={600} height={300} data={this.state.vendidos}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}  >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="Producto"  />
+              <XAxis dataKey="producto"  />
               <YAxis  />
               <Tooltip/>
               <Legend />
-              <Bar stackId="" dataKey="Cantidad"  fill="#8884d8"  />
+              <Bar stackId="" dataKey="cantidad"  fill="#8884d8"  />
             </BarChart>
           </div>
-
-         
-
         </div>
             
   	);
