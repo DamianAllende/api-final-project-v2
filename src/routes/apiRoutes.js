@@ -7,7 +7,7 @@ const Sucursal = require('../models/Sucursal')
 const Ventas = require('../models/Ventas')
 const Productos = require('../models/Productos')
 const Clientes = require('../models/Clientes')
-const ProductosVendidos = require('../models/ProductosVendidos')
+// const ProductosVendidos = require('../models/ProductosVendidos')
 const Pagos = require('../models/Pagos')
 
 function isUserAuthenticated(req, res, next) {
@@ -21,29 +21,35 @@ function isUserAuthenticated(req, res, next) {
 }
 
 
-function Vendidos (req, res){
-  ProductosVendidos
-    .query()    //.eager('username')
-    .then(function(data) {
-      res.json(data)
-    })
-}
 
-function allPagos (req, res){
-  Pagos
-    .query()    //.eager('username')
-    .then(function(data) {
-      res.json(data)
-    })
-}
 
-function Vendidos (req, res){
-  ProductosVendidos
-    .query()    //.eager('username')
-    .then(function(data) {
-      res.json(data)
-    })
-}
+
+
+
+
+// function Vendidos (req, res){
+//   ProductosVendidos
+//     .query()    //.eager('username')
+//     .then(function(data) {
+//       res.json(data)
+//     })
+// }
+
+// function allPagos (req, res){
+//   Pagos
+//     .query()    //.eager('username')
+//     .then(function(data) {
+//       res.json(data)
+//     })
+// }
+
+// function Vendidos (req, res){
+//   ProductosVendidos
+//     .query()    //.eager('username')
+//     .then(function(data) {
+//       res.json(data)
+//     })
+// }
 
 
 function allVentas (req, res){
@@ -175,10 +181,36 @@ function deleteVentas(req, res){
 
 
 
+function tipoPago (req, res){
+  Ventas
+    .query()
+    .select('tipo_pago')
+    .count('tipo_pago as cantidad')
+    .groupBy('tipo_pago')
+    .then(function(data) {
+      res.json(data)
+    })
+}
+
+function ProductosVendidos (req, res){
+  Ventas
+    .query()
+    .select('producto')
+    .count('producto as cantidad')
+    .groupBy('producto')
+    .then(function(data) {
+      res.json(data)
+    })
+}
+
+
+
+
 
 apiRouter
-  .get('/vendidos', Vendidos)
-  .get('/pagos', allPagos)
+
+  .get('/vendidos', ProductosVendidos)
+  .get('/pagos', tipoPago)
 
   .get('/ventas', allVentas)
   .post('/ventas', createNewVenta)

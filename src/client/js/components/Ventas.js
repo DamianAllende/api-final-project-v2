@@ -220,7 +220,7 @@ componentDidMount() {
                 <div className='ventas__flex__dos'>
                   <h1 className='ventas__label ' >Cantidad</h1>
                   <input className='ventas__cantidad' type="number" name='cantidad'  />
-                </div>
+                </div> 
               </section>
             </div>  
               
