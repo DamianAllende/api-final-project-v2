@@ -35901,7 +35901,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 // const API_URL = 'http://localhost:3000'
 var nweLists = '';
 //let listaParaVisualizar = []
@@ -35910,7 +35910,6 @@ var dt = new Date();
 
 // Display the month, day, and year. getMonth() returns a 0-based number.
 var month = dt.getMonth() + 1;
-console.log(month);
 var day = dt.getDate();
 var year = dt.getFullYear();
 var mifecha = year + '-' + month + '-' + day;
@@ -37412,7 +37411,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 // const API_URL = 'http://localhost:3000'
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 var usuario = 'damian';
 
 var RegistroCliente = function (_Component) {
@@ -37589,7 +37588,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 // const API_URL = 'http://localhost:3000'
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 var usuario = 'damian';
 
 var RegistroProducto = function (_Component) {
@@ -37792,7 +37791,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 // const API_URL = 'http://localhost:3000'
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 
 var ReportePagos = function (_Component) {
   _inherits(ReportePagos, _Component);
@@ -52853,7 +52852,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 // const API_URL = 'http://localhost:3000'
 
 var ReportePagos = function (_Component) {
@@ -52939,7 +52938,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // const API_URL = 'http://localhost:3000'
 
-var API_URL = 'https://sgventas.herokuapp.com/';
+var API_URL = 'https://sgventas.herokuapp.com';
 
 var Inicio = function (_Component) {
   _inherits(Inicio, _Component);

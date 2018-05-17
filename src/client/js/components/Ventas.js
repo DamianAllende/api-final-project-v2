@@ -12,7 +12,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-const API_URL = 'https://sgventas.herokuapp.com/'
+const API_URL = 'https://sgventas.herokuapp.com'
 // const API_URL = 'http://localhost:3000'
 let nweLists = ''
 //let listaParaVisualizar = []
@@ -21,7 +21,6 @@ let dt = new Date();
 
 // Display the month, day, and year. getMonth() returns a 0-based number.
 let month = dt.getMonth()+1;
-console.log(month)
 let day = dt.getDate();
 let year = dt.getFullYear();
 let mifecha = `${year}-${month}-${day}`

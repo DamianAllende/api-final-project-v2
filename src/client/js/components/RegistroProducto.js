@@ -3,7 +3,7 @@ import Menu from './Menu'
 import request from 'superagent'
 
 // const API_URL = 'http://localhost:3000'
-const API_URL = 'https://sgventas.herokuapp.com/'
+const API_URL = 'https://sgventas.herokuapp.com'
 const usuario = 'damian'
 class RegistroProducto extends Component {
 

@@ -15,7 +15,7 @@ Pie
  } from 'recharts';
 
 // const API_URL = 'http://localhost:3000'
-const API_URL = 'https://sgventas.herokuapp.com/'
+const API_URL = 'https://sgventas.herokuapp.com'
 
 class ReportePagos extends Component {
 
