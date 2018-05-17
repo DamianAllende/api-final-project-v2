@@ -10,6 +10,7 @@ import {
 
 
 class Menu extends Component {
+
   render() {
   	return (
       <div  className='menu'>
@@ -26,7 +27,6 @@ class Menu extends Component {
           <li className='menu__li'>
             <Link to="/reportes" className='menu__link' >Reportes</Link>
           </li>
-          
         </ul>  
       </div>
   	);

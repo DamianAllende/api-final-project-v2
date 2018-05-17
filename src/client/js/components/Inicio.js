@@ -31,39 +31,26 @@ iniciar = (e) => {
   }
 
 
+  // registro = (e) => {
+  //   e.preventDefault()
 
-
-
-
-
-
-
-
-  registro = (e) => {
-    e.preventDefault()
-
-    const sendRegistro = {
-      email: e.target.email.value,
-      password: e.target.password.value
-    }
+  //   const sendRegistro = {
+  //     email: e.target.email.value,
+  //     password: e.target.password.value
+  //   }
     
-     request
-      .post(`${API_URL}/auth/register`)
-      .send(sendRegistro)
-      .then(response => {
-        this.props.fn()
-        console.log(`Welcome registrar`)
-        // this.props.fnActualizarStatePorUserLogin()
-      })
-      .catch(function(e) {
-        console.log(e)
-        alert("Hola, por favor intenta de nuevo. Si eres usuario nuevo, registrate.");
-      })
-
-
-
-
-  }
+  //    request
+  //     .post(`${API_URL}/auth/register`)
+  //     .send(sendRegistro)
+  //     .then(response => {
+  //       console.log(`Welcome registrar`)
+  //       // this.props.fnActualizarStatePorUserLogin()
+  //     })
+  //     .catch(function(e) {
+  //       console.log(e)
+  //       alert("Hola, por favor intenta de nuevo. Si eres usuario nuevo, registrate.");
+  //     })
+  // }
 
 
 
