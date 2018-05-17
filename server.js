@@ -27,7 +27,23 @@ const authRouter = require('./src/routes/authRouter')
 
 const app = express()
 
-const appConnectionWithDatabase = connectToDatabase(knexFile.development)
+
+
+let dbConnectionConfig;
+
+switch (process.env.NODE_ENV){
+	case 'production':
+	dbConnectionConfig = knexFile.production;
+	break;
+	default;
+		dbConnectionConfig = knexFile.development;	
+}
+
+
+
+
+const appConnectionWithDatabase = connectToDatabase(dbConnectionConfig)
+// const appConnectionWithDatabase = connectToDatabase(knexFile.development) DESARROLLO
 
 Model.knex(appConnectionWithDatabase)
 
