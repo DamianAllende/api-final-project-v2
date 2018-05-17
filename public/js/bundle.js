@@ -35901,7 +35901,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+var API_URL = 'https://sgventas.herokuapp.com/';
+// const API_URL = 'http://localhost:3000'
 var nweLists = '';
 //let listaParaVisualizar = []
 var usuario = 'damian';
@@ -37410,7 +37411,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000'
+var API_URL = 'https://sgventas.herokuapp.com/';
 var usuario = 'damian';
 
 var RegistroCliente = function (_Component) {
@@ -37586,7 +37588,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000'
+var API_URL = 'https://sgventas.herokuapp.com/';
 var usuario = 'damian';
 
 var RegistroProducto = function (_Component) {
@@ -37788,7 +37791,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000'
+var API_URL = 'https://sgventas.herokuapp.com/';
 
 var ReportePagos = function (_Component) {
   _inherits(ReportePagos, _Component);
@@ -52849,7 +52853,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+var API_URL = 'https://sgventas.herokuapp.com/';
+// const API_URL = 'http://localhost:3000'
 
 var ReportePagos = function (_Component) {
   _inherits(ReportePagos, _Component);
@@ -52932,7 +52937,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000'
+
+var API_URL = 'https://sgventas.herokuapp.com/';
 
 var Inicio = function (_Component) {
   _inherits(Inicio, _Component);

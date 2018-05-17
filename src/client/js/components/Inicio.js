@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import request from 'superagent'
-const API_URL = 'http://localhost:3000'
+// const API_URL = 'http://localhost:3000'
+
+const API_URL = 'https://sgventas.herokuapp.com/'
+
 class Inicio extends Component {
 
 

@@ -12,8 +12,8 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
-const API_URL = 'http://localhost:3000'
+const API_URL = 'https://sgventas.herokuapp.com/'
+// const API_URL = 'http://localhost:3000'
 let nweLists = ''
 //let listaParaVisualizar = []
 let usuario = 'damian'

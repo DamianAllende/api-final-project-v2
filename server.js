@@ -35,7 +35,7 @@ switch (process.env.NODE_ENV){
 	case 'production':
 	dbConnectionConfig = knexFile.production;
 	break;
-	default;
+	default:
 		dbConnectionConfig = knexFile.development;	
 }
 
