@@ -7,8 +7,7 @@ let saveNewUser = require('../middleware/auth--saveNewUser.js')
 let {
   handleRegisterRes,
   handleCurrentAuthRes,
-  handleLogoutRes,
-  handleLoginRes
+  handleLogoutRes
 } = require('../controllers/authController.js')
 
 // let {registerUser, getCurrentUser, logoutUser, authenticateUser } = require('../controllers/authController.js')(User)
@@ -29,3 +28,4 @@ authRouter
 
 
 module.exports = authRouter
+

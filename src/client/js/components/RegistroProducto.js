@@ -14,10 +14,9 @@ class RegistroProducto extends Component {
 
     const registroProducto = {
       nombre: e.target.nombre.value,
-      precio: e.target.precio.value,
-      
+      precio: e.target.precio.value
     }
-
+    
     console.log(registroProducto)
 
     request

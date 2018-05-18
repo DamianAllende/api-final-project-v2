@@ -37609,7 +37609,6 @@ var RegistroProducto = function (_Component) {
       var registroProducto = {
         nombre: e.target.nombre.value,
         precio: e.target.precio.value
-
       };
 
       console.log(registroProducto);
